@@ -9,6 +9,7 @@
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: color;
+  display: inline-block;
 
   &:hover, &:focus {
     border-color: $color-primary-lightened;

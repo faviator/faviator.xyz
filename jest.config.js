@@ -2,7 +2,6 @@ module.exports = {
   'moduleFileExtensions': [
     'js',
     'json',
-    // tell Jest to handle `*.vue` files
     'vue',
   ],
   'transform': {
@@ -11,7 +10,7 @@ module.exports = {
   },
   'collectCoverage': true,
   'collectCoverageFrom': [
-    '**/*.{js,vue}',
+    'src/**/*.{js,vue}',
     '!**/node_modules/**',
   ],
   'coverageReporters': ['html', 'text-summary', 'lcov'],
@@ -19,4 +18,8 @@ module.exports = {
   'snapshotSerializers': [
     '<rootDir>/node_modules/jest-serializer-vue',
   ],
+  'moduleDirectories': ['node_modules'],
+  'moduleNameMapper': {
+    '^@/(.*)$': '<rootDir>/src/$1'
+  }
 };
