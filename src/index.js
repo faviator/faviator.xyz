@@ -13,7 +13,6 @@ const registerAll = (context, prefix) => context.keys().forEach(p => {
 
 registerAll(require.context('@/components', false, /.*\.vue/), 'f');
 registerAll(require.context('@/components_presentational', false, /.*\.vue/), 'fP');
-registerAll(require.context('@/partials', false, /.*\.vue/), 'partial');
 
 new Vue({
   router,

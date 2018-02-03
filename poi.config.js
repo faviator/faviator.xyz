@@ -1,5 +1,3 @@
-const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
-
 module.exports = () => ({
   entry: './src/index.js',
   dist: './dist',
@@ -10,16 +8,17 @@ module.exports = () => ({
     pkg: {}, // All package.json data
   },
   webpack(config) {
-    if(process.env.NODE_ENV === 'staging') {
+    if (process.env.NODE_ENV === 'staging') {
+      const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
       config.plugins.push(new RobotstxtPlugin({
         policy: [
           {
             userAgent: '*',
             disallow: '/',
-          }
-        ], 
-      }))
+          },
+        ],
+      }));
     }
     return config;
-  }
+  },
 });

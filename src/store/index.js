@@ -3,11 +3,39 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const state = { };
+const getDefaultConfig = () => ({
+  size: 16,
+  text: 'F',
+  dx: 0,
+  dy: 0,
+  fontSize: 80,
+  fontFamily: 'Dancing Script',
+  fontColor: 'white',
+  backgroundColor: 'rgb(219, 59, 211)',
+  borderWidth: 5,
+  borderColor: '#0D1423',
+  borderRadius: '5%',
+  rx: undefined,
+  ry: undefined,
+});
 
-const mutations = { };
+const state = {
+  config: getDefaultConfig(),
+};
 
-const actions = { };
+const mutations = {
+  setConfig: (state, config) => state.config = config,
+  resetConfig: (state) => state.config = getDefaultConfig(),
+};
+
+const actions = {
+  updateConfig({ commit, state }, newConfig) {
+    commit('setConfig', {
+      ...state.config,
+      ...newConfig,
+    });
+  },
+};
 
 export default new Vuex.Store({
   state,

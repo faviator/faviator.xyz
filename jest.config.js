@@ -20,6 +20,6 @@ module.exports = {
   ],
   'moduleDirectories': ['node_modules'],
   'moduleNameMapper': {
-    '^@/(.*)$': '<rootDir>/src/$1'
-  }
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
 };

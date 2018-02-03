@@ -1,5 +1,9 @@
 @import './styles/config.scss';
 
+input {
+  font-size: inherit;
+}
+
 .button, button, input[type=button], input[type=submit] {
   font-size: inherit;
   background: $color-background;
@@ -15,4 +19,8 @@
     border-color: $color-primary-lightened;
     color: $color-primary-lightened;
   }
+}
+
+input[type=text] {
+  padding: $core-padding;
 }

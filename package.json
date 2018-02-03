@@ -22,7 +22,7 @@
     "\n# TESTING SCRIPTS:": "",
     "test:js": "jest",
     "test:js:w": "npm run test:js -- --watch",
-    "lint:js": "eslint src test",
+    "lint:js": "eslint --ext js,vue src test",
     "\n# HUSKY GIT HOOKS:": "",
     "precommit": "lint-staged"
   },
