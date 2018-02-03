@@ -55,7 +55,4 @@ main {
   margin-top: $core-margin;
   margin-bottom: $core-margin;
 }
-
-
-
 </style>
