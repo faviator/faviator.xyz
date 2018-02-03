@@ -1,0 +1,17 @@
+@import './styles/config.scss';
+
+.button, button, input[type=button], input[type=submit] {
+  font-size: inherit;
+  background: $color-background;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: $core-border-radius;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color;
+
+  &:hover, &:focus {
+    border-color: $color-primary-lightened;
+    color: $color-primary-lightened;
+  }
+}

@@ -1,0 +1,27 @@
+@import './styles/config.scss';
+
+.container {
+  width: 100vw;
+  max-width: $core-container-max-width;
+  padding: 0 $core-padding;
+  margin: 0 auto;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  &:hover {
+    color: $color-primary-lightened;
+  }
+}
+
+p {
+  margin-top: $core-margin;
+  margin-bottom: $core-margin;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-secondary;
+  margin-top: $core-margin;
+  margin-bottom: $core-margin;
+}

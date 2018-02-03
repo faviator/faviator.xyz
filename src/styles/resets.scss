@@ -1,0 +1,18 @@
+@import './styles/config.scss';
+
+html {
+  box-sizing: border-box;
+  font-family: $font-family-primary;
+  font-size: $core-font-size;
+  background: $color-background;
+  color: $color-foreground;
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-family: inherit;
+}
