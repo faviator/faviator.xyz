@@ -1,12 +1,21 @@
-let path = require('path');
-let webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const assets_to_be_copied = [
+  'index.html',
+  'assets',
+];
 
 module.exports = {
-  entry: './src/main.js',
+  context: path.resolve(__dirname, 'src'),
+  entry: './app/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -15,9 +24,6 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
             'scss': 'vue-style-loader!css-loader!sass-loader',
             'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
           },
@@ -36,17 +42,31 @@ module.exports = {
           name: '[name].[ext]?[hash]',
         },
       },
+      {
+        test: /\.md$/,
+        use: [
+          { loader: 'html-loader' },
+          { loader: 'markdown-loader' },
+        ],
+      },
     ],
   },
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin(assets_to_be_copied.map(v => ({ from: v, to: v})), {
+      ignore: ['.*'], // ignore hidden files
+    }),
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve(__dirname, './src/'),
+      '@': path.resolve(__dirname, 'src/app'),
     },
   },
   devServer: {
     historyApiFallback: true,
     noInfo: true,
+    host: '0.0.0.0',
   },
   performance: {
     hints: false,

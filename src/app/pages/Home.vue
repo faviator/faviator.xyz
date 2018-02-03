@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello World!
+    <partial-home-landing></partial-home-landing>
   </div>
 </template>
 
@@ -8,4 +8,5 @@
 export default { }
 </script>
 
-<style></style>
+<style>
+</style>

@@ -1,0 +1,25 @@
+$color-primary: rgb(219, 59, 211);
+$color-secondary: rgb(219, 59, 211);
+$color-tertiary: rgb(219, 59, 211);
+$color-foreground: #000000;
+$color-background: #ffffff;
+$color-disabled: #d6d6d6;
+
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Dancing Script', cursive;
+$core-font-size: 18px;
+
+$core-padding: .6rem;
+$core-margin: 1rem;
+
+$core-border-width: 1px;
+$core-border-color: lighten($color-tertiary, 30%);
+$core-border-style: solid;
+$core-border-radius: 5px;
+$core-border: $core-border-width $core-border-style $core-border-color;
+
+$core-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+
+$core-transition-duration: 0.3s;
+
+$core-container-max-width: 30rem;
