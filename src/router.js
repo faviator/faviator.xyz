@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: '/', component: require('@/pages/Home.vue').default },
-]
+];
 
 export default new VueRouter({
   routes,

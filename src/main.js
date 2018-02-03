@@ -8,5 +8,5 @@ new Vue({
   router,
   store,
   el: '#app',
-  render: h => h({ name:'App', template: `<router-view></router-view>` })
-})
+  render: h => h({ name:'App', template: `<router-view></router-view>` }),
+});
