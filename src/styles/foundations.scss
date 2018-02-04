@@ -11,7 +11,7 @@ a {
   color: $color-primary;
   text-decoration: none;
   &:hover {
-    color: $color-primary-lightened;
+    color: $color-primary-highlight;
   }
 }
 
@@ -34,7 +34,8 @@ h5 { font-size: .83em; }
 h6 { font-size: .75em; }
 
 code {
-  background-color: lighten($color-primary, 40%);
+  background-color: $color-secondary;
+  color: $color-secondary-foreground;
   padding: $core-padding;
   display: block;
   white-space: pre;

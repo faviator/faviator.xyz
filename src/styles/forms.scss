@@ -17,8 +17,8 @@ input, textarea {
   display: inline-block;
 
   &:hover, &:focus {
-    border-color: $color-primary-lightened;
-    color: $color-primary-lightened;
+    border-color: $color-primary-highlight;
+    color: $color-primary-highlight;
   }
 }
 
