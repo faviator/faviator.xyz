@@ -22,6 +22,7 @@
     "\n# TESTING SCRIPTS:": "",
     "test:js": "jest",
     "test:js:w": "npm run test:js -- --watch",
+    "coverage": "codecov",
     "lint:js": "eslint --ext js,vue src test",
     "\n# HUSKY GIT HOOKS:": "",
     "precommit": "lint-staged"
@@ -41,6 +42,7 @@
     "@ycm.jason/eslint-config": "^1.0.0",
     "babel-jest": "^22.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.17.0",
     "eslint-plugin-vue": "^4.2.2",
     "husky": "^0.14.3",
