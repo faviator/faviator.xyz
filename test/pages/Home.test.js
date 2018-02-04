@@ -1,11 +1,11 @@
 import { shallow } from '@vue/test-utils';
-import HomeLanding from '@/partials/HomeLanding.vue';
+import Home from '@/pages/Home.vue';
 
-describe('partials/HomeLanding', () => {
+describe('pages/Home', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(HomeLanding);
+    wrapper = shallow(Home);
   });
 
   test('is a Vue instance', () => {
