@@ -1,36 +1,20 @@
-@import './styles/config.scss';
+@import './config.scss';
 
-// Source: https://gist.github.com/tobiasahlin/7a421fb9306a4f518aab
-// Usage:  @include transition(width, height 0.3s ease-in-out);
-// Output: transition(width 0.2s, height 0.3s ease-in-out);
-@mixin transition($transitions...) {
-  $unfoldedTransitions: ();
-  @each $transition in $transitions {
-    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+@mixin for-size($range) {
+  $phone-upper-boundary: 600px;
+  $tablet-portrait-upper-boundary: 900px;
+  $tablet-landscape-upper-boundary: 1200px;
+  $desktop-upper-boundary: 1800px;
+
+  @if $range == phone-only {
+    @media (max-width: #{$phone-upper-boundary - 1}) { @content; }
+  } @else if $range == tablet-portrait-up {
+    @media (min-width: $phone-upper-boundary) { @content; }
+  } @else if $range == tablet-landscape-up {
+    @media (min-width: $tablet-portrait-upper-boundary) { @content; }
+  } @else if $range == desktop-up {
+    @media (min-width: $tablet-landscape-upper-boundary) { @content; }
+  } @else if $range == big-desktop-up {
+    @media (min-width: $desktop-upper-boundary) { @content; }
   }
-
-  transition: $unfoldedTransitions;
-}
-
-@function unfoldTransition ($transition) {
-  // Default values
-  $property: all;
-  $duration: $core-transition-duration;
-  $easing: ease; // Browser default is ease, which is what we want
-  $delay: 0; // Browser default is 0, which is what we want
-  $defaultProperties: ($property, $duration, $easing, $delay);
-
-  // Grab transition properties if they exist
-  $unfoldedTransition: ();
-  @for $i from 1 through length($defaultProperties) {
-    $p: null;
-    @if $i <= length($transition) {
-      $p: nth($transition, $i)
-    } @else {
-      $p: nth($defaultProperties, $i)
-    }
-    $unfoldedTransition: append($unfoldedTransition, $p);
-  }
-
-  @return $unfoldedTransition;
 }

@@ -42,3 +42,12 @@ code {
   overflow: auto;
   font-family: Consolas, monospace;
 }
+
+hr {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid $color-primary;
+  border-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

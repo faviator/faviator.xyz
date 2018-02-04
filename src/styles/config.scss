@@ -7,11 +7,15 @@ $color-secondary: lighten($color-primary, 40%);
 $color-secondary-foreground: #000000;
 
 
-$color-tertiary: rgb(219, 59, 211);
+$color-tertiary: darken($color-primary, 40%);;
+$color-tertiary-foreground: #ffffff;
+$color-tertiary-highlight: $color-primary;
 
 $color-foreground: #000000;
 $color-background: #ffffff;
 $color-disabled: #d6d6d6;
+$color-border: #d6d6d6;
+$color-border-focused: $color-primary;
 
 // Fonts
 $font-family-primary: 'Roboto', sans-serif;
@@ -24,7 +28,7 @@ $core-margin: .6rem;
 
 // Borders
 $core-border-width: 1px;
-$core-border-color: lighten($color-tertiary, 30%);
+$core-border-color: $color-border;
 $core-border-style: solid;
 $core-border-radius: 5px;
 $core-border: $core-border-width $core-border-style $core-border-color;

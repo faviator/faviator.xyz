@@ -1,10 +1,12 @@
 <template>
   <main>
-    {{config}}
+    <div v-html="createSvgFavicon(config)"></div>
   </main>
 </template>
 
 <script>
+import createSvgFavicon from '@faviator/create-svg-favicon';
+
 export default {
   props: {
     config: {
@@ -12,7 +14,17 @@ export default {
       required: true,
     },
   },
+  methods: {
+    createSvgFavicon,
+  },
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import '../styles/config';
+div {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+</style>

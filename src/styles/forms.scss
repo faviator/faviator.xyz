@@ -22,8 +22,14 @@ input, textarea {
   }
 }
 
-input[type=text], textarea {
+input[type=number], input[type=text], textarea {
+  width: 100%;
+  border: $core-border;
+  border-radius: $core-border-radius;
   padding: $core-padding;
+  &:focus {
+    border-color: $color-border-focused;
+  }
 }
 
 textarea {

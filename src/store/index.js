@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const getDefaultConfig = () => ({
-  size: 16,
+  size: 160,
   text: 'F',
   dx: 0,
   dy: 0,
@@ -14,7 +14,7 @@ const getDefaultConfig = () => ({
   backgroundColor: 'rgb(219, 59, 211)',
   borderWidth: 5,
   borderColor: '#0D1423',
-  borderRadius: '5%',
+  borderRadius: 5,
   rx: undefined,
   ry: undefined,
 });

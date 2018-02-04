@@ -28,8 +28,8 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "@faviator/create-svg-favicon": "^0.1.6",
     "babel-polyfill": "^6.26.0",
-    "faviator": "^0.1.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "superstatic": "^5.0.1",
@@ -50,7 +50,7 @@
     "lint-staged": "^6.1.0",
     "poi": "^9.6.13",
     "robotstxt-webpack-plugin": "^4.0.0",
-    "vue-jest": "^2.0.0",
+    "vue-jest": "^2.0.1",
     "vue-template-compiler": "^2.3.3"
   }
 }

@@ -1,108 +1,141 @@
 <template>
   <main>
     <section class="config_size">
-      <input
-        name="size"
-        :value="config.size"
-        type="range"
-        min="5"
-        max="160"
-        step="1"
-        @input="update">
+      <label>
+        Size
+        <f-p-input-range
+          name="size"
+          :value="config.size"
+          :min="5"
+          :max="500"
+          :step="1"
+          @input="update"></f-p-input-range>
+      </label>
     </section>
 
     <hr>
 
     <section class="config_text">
-      <input
-        name="text"
-        :value="config.text"
-        type="text"
-        placeholder="Text"
-        @input="update">
-      <input
-        name="fontFamily"
-        :value="config.fontFamily"
-        type="text"
-        placeholder="Font Family"
-        @input="update">
-      <input
-        name="fontSize"
-        :value="config.fontSize"
-        type="text"
-        placeholder="Font Size"
-        @input="update">
-      <input
-        name="fontColor"
-        :value="config.fontColor"
-        type="text"
-        placeholder="Font Color"
-        @input="update">
-      <input
-        name="dx"
-        :value="config.dx"
-        type="range"
-        :min="-(config.size / 2)"
-        :max="config.size / 2"
-        step="0.5"
-        @input="update">
-      <input
-        name="dy"
-        :value="config.dy"
-        type="range"
-        :min="-(config.size / 2)"
-        :max="config.size / 2"
-        step="0.5"
-        @input="update">
+      <label>
+        Text
+        <input
+          name="text"
+          :value="config.text"
+          type="text"
+          placeholder="Text"
+          @input="update">
+      </label>
+      <label>
+        Font family (choose from <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>)
+        <input
+          name="fontFamily"
+          :value="config.fontFamily"
+          type="text"
+          placeholder="Font Family"
+          @input="update">
+      </label>
+      <label>
+        Font size
+        <f-p-input-range
+          name="fontSize"
+          :value="config.fontSize"
+          :min="0"
+          :max="120"
+          :step="1"
+          @input="update"></f-p-input-range>
+      </label>
+      <label>
+        Font color
+        <input
+          name="fontColor"
+          :value="config.fontColor"
+          type="text"
+          placeholder="Font Color"
+          @input="update">
+      </label>
+      <label>
+        dx
+        <f-p-input-range
+          name="dx"
+          :value="config.dx"
+          :min="-(config.size / 2)"
+          :max="config.size / 2"
+          :step="0.5"
+          @input="update"></f-p-input-range>
+      </label>
+      <label>
+        dy
+        <f-p-input-range
+          name="dy"
+          :value="config.dy"
+          :min="-(config.size / 2)"
+          :max="config.size / 2"
+          :step="0.5"
+          @input="update"></f-p-input-range>
+      </label>
     </section>
 
     <hr>
 
     <section class="config_other">
-      <input
-        name="backgroundColor"
-        :value="config.backgroundColor"
-        type="text"
-        placeholder="Background Color"
-        @input="update">
-      <input
-        name="borderWidth"
-        :value="config.borderWidth"
-        type="range"
-        :min="0"
-        :max="config.size / 2"
-        step="0.5"
-        @input="update">
-      <input
-        name="borderColor"
-        :value="config.borderColor"
-        type="text"
-        placeholder="Border Color"
-        @input="update">
-      <input
-        name="borderRadius"
-        :value="config.borderRadius"
-        type="range"
-        :min="0"
-        :max="config.size / 2"
-        step="0.5"
-        @input="update">
-      <input
-        name="rx"
-        :value="config.rx"
-        type="range"
-        :min="0"
-        :max="config.size / 2"
-        step="0.5"
-        @input="update">
-      <input
-        name="ry"
-        :value="config.ry"
-        type="range"
-        :min="0"
-        :max="config.size / 2"
-        step="0.5"
-        @input="update">
+      <label>
+        Background color
+        <input
+          name="backgroundColor"
+          :value="config.backgroundColor"
+          type="text"
+          placeholder="Background Color"
+          @input="update">
+      </label>
+      <label>
+        Border width
+        <f-p-input-range
+          name="borderWidth"
+          :value="config.borderWidth"
+          :min="0"
+          :max="config.size / 2"
+          :step="0.5"
+          @input="update"></f-p-input-range>
+      </label>
+      <label>
+        Border color
+        <input
+          name="borderColor"
+          :value="config.borderColor"
+          type="text"
+          placeholder="Border Color"
+          @input="update">
+      </label>
+      <label>
+        Border radius
+        <f-p-input-range
+          name="borderRadius"
+          :value="config.borderRadius"
+          :min="0"
+          :max="50"
+          :step="0.5"
+          @input="updateRadius"></f-p-input-range>
+      </label>
+      <label>
+        rx
+        <f-p-input-range
+          name="rx"
+          :value="config.rx"
+          :min="0"
+          :max="50"
+          :step="0.5"
+          @input="updateRx"></f-p-input-range>
+      </label>
+      <label>
+        ry
+        <f-p-input-range
+          name="ry"
+          :value="config.ry"
+          :min="0"
+          :max="50"
+          :step="0.5"
+          @input="updateRy"></f-p-input-range>
+      </label>
     </section>
   </main>
 </template>
@@ -119,22 +152,49 @@ export default {
     update({ target: { name, value }}) {
       this.$emit('change', { [name]: value });
     },
+    updateRadius({ target: { value }}) {
+      this.$emit('change', {
+        borderRadius: value,
+        rx: undefined,
+        ry: undefined,
+      });
+    },
+    updateRx({ target: { value }}) {
+      this.$emit('change', {
+        borderRadius: undefined,
+        rx: value,
+      });
+    },
+    updateRy({ target: { value }}) {
+      this.$emit('change', {
+        borderRadius: undefined,
+        ry: value,
+      });
+    },
   },
 };
 </script>
 
-<style style="scss" scoped>
-main {
-  width: 500px;
-  max-width: 100%;
-}
+<style lang="scss" scoped>
+@import '../styles/config';
 
 section {
   display: flex;
   flex-direction: column;
 }
 
-input {
+label {
+  font-weight: bold;
+  margin-bottom: ($core-margin * 3);
+}
 
+label > main, label > input {
+  display: block;
+  margin-top: ($core-margin / 2);
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: ($core-margin * 3);
 }
 </style>
