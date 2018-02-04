@@ -15,6 +15,12 @@
 
     <section class="config_text">
       <input
+        name="text"
+        :value="config.text"
+        type="text"
+        placeholder="Text"
+        @input="update">
+      <input
         name="fontFamily"
         :value="config.fontFamily"
         type="text"
@@ -81,6 +87,22 @@
         :max="config.size / 2"
         step="0.5"
         @input="update">
+      <input
+        name="rx"
+        :value="config.rx"
+        type="range"
+        :min="0"
+        :max="config.size / 2"
+        step="0.5"
+        @input="update">
+      <input
+        name="ry"
+        :value="config.ry"
+        type="range"
+        :min="0"
+        :max="config.size / 2"
+        step="0.5"
+        @input="update">
     </section>
   </main>
 </template>
@@ -95,10 +117,7 @@ export default {
   },
   methods: {
     update({ target: { name, value }}) {
-      this.$emit('change', {
-        ...this.config,
-        [name]: value,
-      });
+      this.$emit('change', { [name]: value });
     },
   },
 };

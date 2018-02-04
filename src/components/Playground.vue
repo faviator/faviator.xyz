@@ -5,6 +5,7 @@
       <f-p-playground-controls :config="config" @change="updateConfig"></f-p-playground-controls>
       <f-p-playground-result :config="config"></f-p-playground-result>
     </section>
+    <f-p-playground-display-config :config="config"></f-p-playground-display-config>
   </main>
 </template>
 

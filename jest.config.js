@@ -13,11 +13,8 @@ module.exports = {
     'src/**/*.{js,vue}',
     '!**/node_modules/**',
   ],
-  'coverageReporters': ['html', 'text-summary', 'lcov'],
+  'coverageReporters': ['text', 'html', 'lcov'],
   'mapCoverage': true,
-  'snapshotSerializers': [
-    '<rootDir>/node_modules/jest-serializer-vue',
-  ],
   'moduleDirectories': ['node_modules'],
   'moduleNameMapper': {
     '^@/(.*)$': '<rootDir>/src/$1',
