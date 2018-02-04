@@ -1,3 +1,9 @@
 {
-  "public": "dist"
+  "public": "dist",
+  "rewrites": [
+    {
+      "source": "**",
+      "destination": "/"
+    }
+  ]
 }
