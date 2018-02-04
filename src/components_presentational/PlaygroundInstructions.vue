@@ -1,5 +1,5 @@
 <template>
-  <p>On the left you can tweek the configuration that is passed to Faviator. And you will see the result instantly on the right.</p>
+  <p>You can tweek the settings below and see the result instantly. The configurations would be available at the end of the page.</p>
 </template>
 
 <script>
