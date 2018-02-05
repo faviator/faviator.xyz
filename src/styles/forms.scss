@@ -1,0 +1,39 @@
+@import './styles/config.scss';
+
+input, textarea {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.button, button, input[type=button], input[type=submit] {
+  font-size: inherit;
+  font-weight: inherit;
+  background: $color-background;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: $core-border-radius;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color;
+  display: inline-block;
+
+  &:hover, &:focus {
+    border-color: $color-primary-highlight;
+    color: $color-primary-highlight;
+  }
+}
+
+input[type=number], input[type=text], textarea {
+  width: 100%;
+  border: $core-border;
+  border-radius: $core-border-radius;
+  padding: $core-padding;
+  &:focus {
+    border-color: $color-border-focused;
+  }
+}
+
+textarea {
+  min-height: 10rem;
+  width: 100%;
+}

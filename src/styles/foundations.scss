@@ -1,0 +1,68 @@
+@import './styles/config.scss';
+
+.container {
+  width: 100%;
+  max-width: $core-container-max-width;
+  padding: 0 $core-padding;
+  margin: 0 auto;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  &:hover {
+    color: $color-primary-highlight;
+  }
+}
+
+p {
+  margin-top: $core-margin;
+  margin-bottom: $core-margin;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: $core-margin;
+  margin-bottom: $core-margin;
+}
+
+h1, h2 {
+  font-family: $font-family-secondary;
+}
+
+h3, h4, h5, h6 {
+  font-family: $font-family-primary;
+}
+
+h4, h5, h6 {
+  font-weight: 300;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1.12em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
+
+code {
+  background-color: $color-secondary;
+  color: $color-secondary-foreground;
+  padding: $core-padding;
+  display: block;
+  white-space: pre;
+  overflow: auto;
+  font-family: Consolas, monospace;
+}
+
+hr {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid $color-primary;
+  border-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

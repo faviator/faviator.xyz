@@ -1,6 +1,14 @@
-# created by gitignorer
-# profile used: node
-*.sw*
 .DS_Store
-node_modules
-npm-debug.log*
+node_modules/
+dist/
+coverage/
+npm-debug.log
+yarn-error.log
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
