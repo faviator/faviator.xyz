@@ -30,7 +30,9 @@
   "dependencies": {
     "@faviator/create-svg-favicon": "^0.1.6",
     "babel-polyfill": "^6.26.0",
+    "lodash.mapvalues": "^4.6.0",
     "node-sass": "^4.7.2",
+    "param-case": "^2.1.1",
     "sass-loader": "^6.0.6",
     "superstatic": "^5.0.1",
     "vue": "^2.3.3",

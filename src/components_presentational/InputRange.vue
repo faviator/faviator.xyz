@@ -4,8 +4,11 @@
       <input
         type="number"
         :name="name"
-        :value="value"
+        :min="min"
+        :max="max"
+        :step="step"
         :disabled="disabled"
+        :value="value"
         @input="emitInput"
         @change="emitChange">
       <input
@@ -30,11 +33,11 @@ export default {
       required: false,
     },
     min: {
-      required: true,
+      required: false,
       validator: (v) => !isNaN(Number(v)),
     },
     max: {
-      required: true,
+      required: false,
       validator: (v) => !isNaN(Number(v)),
     },
     step: {
@@ -51,12 +54,10 @@ export default {
   },
   methods: {
     emitChange(event) {
-      event.target.value = Number(event.target.value);
-      this.$emit('change', event);
+      this.$emit('change', event.target.value);
     },
     emitInput(event) {
-      event.target.value = Number(event.target.value);
-      this.$emit('input', event);
+      this.$emit('input', event.target.value);
     },
   },
 };

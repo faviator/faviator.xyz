@@ -21,9 +21,24 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family-secondary;
   margin-top: $core-margin;
   margin-bottom: $core-margin;
+}
+
+h1, h2 {
+  font-family: $font-family-secondary;
+}
+
+h3, h4, h5, h6 {
+  font-family: $font-family-primary;
+}
+
+h4, h5, h6 {
+  font-weight: 300;
+}
+
+h3 {
+  font-weight: bold;
 }
 
 h1 { font-size: 2em; }

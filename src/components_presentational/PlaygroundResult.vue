@@ -1,6 +1,8 @@
 <template>
   <main>
-    <div v-html="createSvgFavicon(config)"></div>
+    <div>
+      <img :src='`data:image/svg+xml;utf8,${svg}`'>
+    </div>
   </main>
 </template>
 
@@ -14,8 +16,10 @@ export default {
       required: true,
     },
   },
-  methods: {
-    createSvgFavicon,
+  computed: {
+    svg() {
+      return createSvgFavicon(this.config);
+    },
   },
 };
 </script>

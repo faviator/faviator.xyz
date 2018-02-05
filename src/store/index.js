@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import mapValues from 'lodash.mapvalues';
+
 Vue.use(Vuex);
 
 const getDefaultConfig = () => ({
@@ -30,10 +32,10 @@ const mutations = {
 
 const actions = {
   updateConfig({ commit, state }, newConfig) {
-    commit('setConfig', {
+    commit('setConfig', mapValues({
       ...state.config,
       ...newConfig,
-    });
+    }, v => Number(v) || v));
   },
 };
 

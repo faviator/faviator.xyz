@@ -9,7 +9,7 @@
           :min="5"
           :max="500"
           :step="1"
-          @input="update"></f-p-input-range>
+          @input="v => update('size', v)"></f-p-input-range>
       </label>
     </section>
 
@@ -23,7 +23,7 @@
           :value="config.text"
           type="text"
           placeholder="Text"
-          @input="update">
+          @input="update('text', $event.target.value)">
       </label>
       <label>
         Font family (choose from <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>)
@@ -32,7 +32,7 @@
           :value="config.fontFamily"
           type="text"
           placeholder="Font Family"
-          @input="update">
+          @input="update('fontFamily', $event.target.value)">
       </label>
       <label>
         Font size
@@ -42,7 +42,7 @@
           :min="0"
           :max="120"
           :step="1"
-          @input="update"></f-p-input-range>
+          @input="v => update('fontSize', v)"></f-p-input-range>
       </label>
       <label>
         Font color
@@ -51,7 +51,7 @@
           :value="config.fontColor"
           type="text"
           placeholder="Font Color"
-          @input="update">
+          @input="update('fontColor', $event.target.value)">
       </label>
       <label>
         dx
@@ -61,7 +61,7 @@
           :min="-(config.size / 2)"
           :max="config.size / 2"
           :step="0.5"
-          @input="update"></f-p-input-range>
+          @input="v => update('dx', v)"></f-p-input-range>
       </label>
       <label>
         dy
@@ -71,7 +71,7 @@
           :min="-(config.size / 2)"
           :max="config.size / 2"
           :step="0.5"
-          @input="update"></f-p-input-range>
+          @input="v => update('dy', v)"></f-p-input-range>
       </label>
     </section>
 
@@ -85,7 +85,7 @@
           :value="config.backgroundColor"
           type="text"
           placeholder="Background Color"
-          @input="update">
+          @input="update('backgroundColor', $event.target.value)">
       </label>
       <label>
         Border width
@@ -95,7 +95,7 @@
           :min="0"
           :max="config.size / 2"
           :step="0.5"
-          @input="update"></f-p-input-range>
+          @input="v => update('borderWidth', v)"></f-p-input-range>
       </label>
       <label>
         Border color
@@ -104,7 +104,7 @@
           :value="config.borderColor"
           type="text"
           placeholder="Border Color"
-          @input="update">
+          @input="update('borderColor', $event.target.value)">
       </label>
       <label>
         Border radius
@@ -149,23 +149,23 @@ export default {
     },
   },
   methods: {
-    update({ target: { name, value }}) {
+    update(name, value) {
       this.$emit('change', { [name]: value });
     },
-    updateRadius({ target: { value }}) {
+    updateRadius(value) {
       this.$emit('change', {
         borderRadius: value,
         rx: undefined,
         ry: undefined,
       });
     },
-    updateRx({ target: { value }}) {
+    updateRx(value) {
       this.$emit('change', {
         borderRadius: undefined,
         rx: value,
       });
     },
-    updateRy({ target: { value }}) {
+    updateRy(value) {
       this.$emit('change', {
         borderRadius: undefined,
         ry: value,
