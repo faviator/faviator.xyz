@@ -21,16 +21,16 @@ const getDefaultConfig = () => ({
   ry: undefined,
 });
 
-const state = {
+export const state = {
   config: getDefaultConfig(),
 };
 
-const mutations = {
-  setConfig: (state, config) => state.config = config,
+export const mutations = {
+  setConfig: (state, config) => state.config = { ...config },
   resetConfig: (state) => state.config = getDefaultConfig(),
 };
 
-const actions = {
+export const actions = {
   updateConfig({ commit, state }, newConfig) {
     commit('setConfig', mapValues({
       ...state.config,
