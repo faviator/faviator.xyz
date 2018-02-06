@@ -1,7 +1,7 @@
 {
   "name": "faviator.xyz",
   "description": "Web UI for faviator",
-  "version": "1.1.0",
+  "version": "0.1.1",
   "author": "Jason Yu <me@ycmjason.com>",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "npm run test:js",
     "preversion": "git checkout master && git merge --squash dev && npm test",
     "version": "git add -A",
-    "postversion": "git checkout - && git merge master -m 'Merge with master' && git push",
+    "postversion": "git push && git push --tags && git checkout - && git merge master -m 'Merge with master' && git push",
     "\n# BUILDING SCRIPTS:": "",
     "dev": "poi",
     "build": "poi build",
@@ -17,7 +17,7 @@
     "heroku-postbuild": "npm run build",
     "\n# DEPLOYMENT SCRIPTS:": "",
     "predeploy": "git checkout master",
-    "deploy": "git push && git push --tags",
+    "deploy": "git push prod master",
     "postdeploy": "git checkout - && git push",
     "\n# TESTING SCRIPTS:": "",
     "test:js": "jest",
@@ -36,6 +36,7 @@
     "sass-loader": "^6.0.6",
     "superstatic": "^5.0.1",
     "vue": "^2.3.3",
+    "vue-ga": "^1.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

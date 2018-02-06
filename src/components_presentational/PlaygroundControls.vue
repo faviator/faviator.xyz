@@ -184,7 +184,7 @@ section {
 }
 
 label {
-  font-weight: bold;
+  font-weight: $font-family-primary-weight-bold;
   margin-bottom: ($core-margin * 3);
 }
 

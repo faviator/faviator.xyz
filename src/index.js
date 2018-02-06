@@ -6,6 +6,10 @@ import store from '@/store';
 
 import App from '@/App.vue';
 
+import ga from 'vue-ga';
+
+ga(router, 'UA-113637016-1');
+
 const registerAll = (context, prefix) => context.keys().forEach(p => {
   let name = p.match(/\.\/(.*?)\.vue/)[1];
   Vue.component(prefix + name, context(p).default);

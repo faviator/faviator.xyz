@@ -21,10 +21,6 @@ describe('components_presentational/PlaygroundResult', () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
-  test('uses image tag to display svg', () => {
-    expect(wrapper.find('img').exists()).toBe(true);
-  });
-
   test('createSvgFavicon is called', () => {
     expect(createSvgFavicon).toHaveBeenCalledTimes(1);
   });
