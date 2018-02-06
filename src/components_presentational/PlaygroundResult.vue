@@ -1,8 +1,6 @@
 <template>
   <main>
-    <div>
-      <img :src='`data:image/svg+xml;utf8,${svg}`'>
-    </div>
+    <div v-html="svg"></div>
   </main>
 </template>
 

@@ -4,7 +4,7 @@ html {
   box-sizing: border-box;
   font-family: $font-family-primary;
   font-size: $core-font-size;
-  font-weight: 300;
+  font-weight: $font-family-primary-weight;
   background: $color-background;
   color: $color-foreground;
 }

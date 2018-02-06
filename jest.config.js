@@ -9,10 +9,6 @@ module.exports = {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
   },
   'collectCoverage': true,
-  'collectCoverageFrom': [
-    'src/**/*.{js,vue}',
-    '!**/node_modules/**',
-  ],
   'coverageReporters': ['text', 'html', 'lcov'],
   'mapCoverage': true,
   'moduleDirectories': ['node_modules'],

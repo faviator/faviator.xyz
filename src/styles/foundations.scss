@@ -34,11 +34,11 @@ h3, h4, h5, h6 {
 }
 
 h4, h5, h6 {
-  font-weight: 300;
+  font-weight: $font-family-primary-weight;
 }
 
 h3 {
-  font-weight: bold;
+  font-weight: $font-family-primary-weight-bold;
 }
 
 h1 { font-size: 2em; }
