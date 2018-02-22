@@ -17,11 +17,7 @@
 </template>
 
 <script>
-export default {
-  data: () => {
-    return {};
-  },
-};
+export default { };
 </script>
 
 <style lang="scss" scoped>
@@ -41,7 +37,7 @@ main {
 }
 
 .logo {
-  width: 130px;
+  width: 180px;
 }
 
 .title {
