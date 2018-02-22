@@ -1,4 +1,5 @@
 module.exports = () => ({
+  port: 8080,
   entry: './src/index.js',
   dist: './dist',
   html: {

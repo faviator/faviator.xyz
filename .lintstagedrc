@@ -1,4 +1,4 @@
 {
-  "src/**/*.{js,vue}": "eslint",
-  "test/**/*.js": "eslint"
+  "src/**/*.{js,vue}": "npm run lint:js --",
+  "test/**/*.js": "npm run lint:js --"
 }

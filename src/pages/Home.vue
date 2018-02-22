@@ -37,7 +37,7 @@ main {
 }
 
 .logo {
-  width: 130px;
+  width: 180px;
 }
 
 .title {

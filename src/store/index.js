@@ -3,22 +3,12 @@ import Vuex from 'vuex';
 
 import mapValues from 'lodash.mapvalues';
 
+import faviatorIconConfig from '@/../faviatorIconConfig';
+
 Vue.use(Vuex);
 
 const getDefaultConfig = () => ({
-  size: 160,
-  text: 'F',
-  dx: 0,
-  dy: 0,
-  fontSize: 80,
-  fontFamily: 'Dancing Script',
-  fontColor: 'white',
-  backgroundColor: 'rgb(219, 59, 211)',
-  borderWidth: 5,
-  borderColor: '#0D1423',
-  borderRadius: 5,
-  rx: undefined,
-  ry: undefined,
+  ...faviatorIconConfig
 });
 
 export const state = {

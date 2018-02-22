@@ -10,7 +10,6 @@ module.exports = {
   },
   'collectCoverage': true,
   'coverageReporters': ['text', 'html', 'lcov'],
-  'mapCoverage': true,
   'moduleDirectories': ['node_modules'],
   'moduleNameMapper': {
     '^@/(.*)$': '<rootDir>/src/$1',
