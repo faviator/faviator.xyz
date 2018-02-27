@@ -28,14 +28,14 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@faviator/create-svg-favicon": "^1.1.0",
+    "@faviator/create-svg-favicon": "^1.0.0",
     "babel-polyfill": "^6.26.0",
     "lodash.mapvalues": "^4.6.0",
     "node-sass": "^4.7.2",
     "param-case": "^2.1.1",
     "sass-loader": "^6.0.6",
     "superstatic": "^5.0.1",
-    "vue": "^2.5.13",
+    "vue": "^2.3.3",
     "vue-ga": "^1.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
@@ -47,13 +47,13 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "codecov": "^3.0.0",
     "eslint": "^4.18.1",
-    "eslint-plugin-vue": "^4.3.0",
+    "eslint-plugin-vue": "^4.2.2",
     "husky": "^0.14.3",
-    "jest": "^22.4.2",
+    "jest": "^22.4.1",
     "lint-staged": "^7.0.0",
     "poi": "^9.6.13",
-    "robotstxt-webpack-plugin": "^4.0.1",
+    "robotstxt-webpack-plugin": "^4.0.0",
     "vue-jest": "^2.1.0",
-    "vue-template-compiler": "^2.5.13"
+    "vue-template-compiler": "^2.3.3"
   }
 }
