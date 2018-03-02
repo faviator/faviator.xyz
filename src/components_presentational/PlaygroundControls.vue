@@ -26,13 +26,12 @@
           @input="update('text', $event.target.value)">
       </label>
       <label>
-        Font family (choose from <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>)
-        <input
+        Font family (or choose from <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>)
+        <f-input-google-fonts
           name="fontFamily"
           :value="config.fontFamily"
           type="text"
-          placeholder="Font Family"
-          @input="update('fontFamily', $event.target.value)">
+          @change="update('fontFamily', $event.target.value)"></f-input-google-fonts>
       </label>
       <label>
         Font size

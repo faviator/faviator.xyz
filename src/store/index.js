@@ -8,7 +8,7 @@ import faviatorIconConfig from '@/../faviatorIconConfig';
 Vue.use(Vuex);
 
 const getDefaultConfig = () => ({
-  ...faviatorIconConfig
+  ...faviatorIconConfig,
 });
 
 export const state = {
