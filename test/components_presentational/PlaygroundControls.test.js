@@ -22,7 +22,7 @@ describe('components_presentational/PlaygroundControls', () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
-  ['size', 'text', 'dx', 'dy', 'fontSize', 'fontFamily', 'fontColor', 'backgroundColor',
+  ['size', 'text', 'dx', 'dy', 'fontSize', 'fontColor', 'backgroundColor',
     'borderWidth', 'borderColor'].forEach(k => {
     describe(`<input name="${k}">`, () => {
       it(`should emit change event @input with correct payload`, () => {
