@@ -1,7 +1,7 @@
 {
   "name": "faviator.xyz",
   "description": "Web UI for faviator",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Jason Yu <me@ycmjason.com>",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "npm run test:js",
     "preversion": "git checkout master && git merge --squash dev && npm test",
     "version": "git add -A",
-    "postversion": "git push && git push --tags && git checkout - && git merge master -m 'Merge with master' && git push",
+    "postversion": "git push && git push --tags && git checkout - && git merge master -X theirs -m 'Merge with master' && git push",
     "\n# BUILDING SCRIPTS:": "",
     "dev": "poi",
     "build": "poi build",
@@ -25,7 +25,9 @@
     "coverage": "codecov",
     "lint:js": "eslint --ext js,vue src test",
     "\n# HUSKY GIT HOOKS:": "",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "\n# OTHER SCRIPTS": "",
+    "grepFonts": "bash ./scripts/grepFonts.bash"
   },
   "dependencies": {
     "@faviator/create-svg-favicon": "^1.1.0",
@@ -42,11 +44,11 @@
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.12",
-    "@ycm.jason/eslint-config": "^1.1.0",
+    "@ycm.jason/eslint-config": "^1.2.0",
     "babel-jest": "^22.4.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "codecov": "^3.0.0",
-    "eslint": "^4.18.1",
+    "eslint": "^4.18.2",
     "eslint-plugin-vue": "^4.3.0",
     "husky": "^0.14.3",
     "jest": "^22.4.2",

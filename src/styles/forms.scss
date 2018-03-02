@@ -23,7 +23,9 @@ input, textarea {
   }
 }
 
-input[type=number], input[type=text], textarea {
+input[type=number], input[type=text], textarea, select {
+  font-family: inherit;
+  font-size: inherit;
   width: 100%;
   border: $core-border;
   border-radius: $core-border-radius;
