@@ -25,7 +25,9 @@
     "coverage": "codecov",
     "lint:js": "eslint --ext js,vue src test",
     "\n# HUSKY GIT HOOKS:": "",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "\n# OTHER SCRIPTS": "",
+    "grepFonts": "bash ./scripts/grepFonts.bash"
   },
   "dependencies": {
     "@faviator/create-svg-favicon": "^1.1.0",
