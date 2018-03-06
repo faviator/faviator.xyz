@@ -27,6 +27,7 @@ input[type=number], input[type=text], textarea, select {
   font-family: inherit;
   font-size: inherit;
   width: 100%;
+  background-color: $color-background;
   border: $core-border;
   border-radius: $core-border-radius;
   padding: $core-padding;
