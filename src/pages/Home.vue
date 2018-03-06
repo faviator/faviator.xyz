@@ -1,5 +1,9 @@
 <template>
   <main>
+    <div class="github-button-container">
+      <a class="github-button" href="https://github.com/faviator/faviator" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star faviator/faviator on GitHub">Star</a>
+    </div>
+
     <img class="logo" src="/assets/logo.png">
     <h1 class="title">Faviator</h1>
     <p class="slogan">A simple easy favicon generator.</p>
@@ -49,6 +53,12 @@ main {
   font-size: 1.5rem;
   font-style: italic;
   margin-top: 0;
+}
+
+.github-button-container {
+  position: absolute;
+  top: $core-margin;
+  right: $core-margin;
 }
 
 .link_playground {
