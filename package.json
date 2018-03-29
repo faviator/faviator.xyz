@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "npm run test:js",
-    "verify": "npm run clean && npm install && npm build && npm test",
+    "verify": "npm run clean && npm install && npm run build && npm test",
     "preversion": "git checkout master && git merge --squash dev && npm run verify",
     "version": "git add -A",
     "postversion": "git push && git push --tags && git checkout - && git merge master -X theirs -m 'Merge with master' && git push",
