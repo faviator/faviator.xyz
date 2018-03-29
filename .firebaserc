@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "faviator-xyz"
+    "default": "faviator-xyz",
+    "staging": "faviator-xyz-staging"
   }
 }
