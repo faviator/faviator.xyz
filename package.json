@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "test": "npm run test:js",
-    "preversion": "git checkout master && git merge --squash dev && npm test",
+    "verify": "npm run clean && npm install && npm build && npm test",
+    "preversion": "git checkout master && git merge --squash dev && npm run verify",
     "version": "git add -A",
     "postversion": "git push && git push --tags && git checkout - && git merge master -X theirs -m 'Merge with master' && git push",
     "\n# BUILDING SCRIPTS:": "",
@@ -14,7 +15,7 @@
     "build": "poi build",
     "clean": "/bin/rm -rf dist coverage node_modules",
     "\n# DEPLOYMENT SCRIPTS:": "",
-    "predeploy": "git checkout master && npm run clean && npm install && npm run build && npm test",
+    "predeploy": "git checkout master && npm run verify",
     "deploy": "firebase deploy",
     "postdeploy": "git checkout -",
     "\n# TESTING SCRIPTS:": "",
