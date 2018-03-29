@@ -12,7 +12,7 @@
     "\n# BUILDING SCRIPTS:": "",
     "dev": "poi",
     "build": "npm run clean && poi build",
-    "clean": "/bin/rm -r dist coverage node_modules",
+    "clean": "/bin/rm -rf dist coverage node_modules",
     "\n# DEPLOYMENT SCRIPTS:": "",
     "predeploy": "git checkout master && npm run build && npm test",
     "deploy": "firebase deploy",
