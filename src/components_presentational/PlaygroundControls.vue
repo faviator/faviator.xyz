@@ -31,7 +31,7 @@
           name="fontFamily"
           :value="config.fontFamily"
           type="text"
-          @change="update('fontFamily', $event.target.value)"></f-input-google-fonts>
+          @change="font => update('fontFamily', font)"></f-input-google-fonts>
       </label>
       <label>
         Font size
