@@ -12,6 +12,7 @@
 
 <script>
 import { pickRandom } from '../utils';
+
 export default {
   async created() {
     this.fonts = await fetch('/googleFonts.json').then(res => res.json());

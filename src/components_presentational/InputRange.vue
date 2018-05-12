@@ -34,19 +34,19 @@ export default {
     },
     min: {
       required: false,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     max: {
       required: false,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     step: {
       default: 1,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     value: {
       required: false,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     disabled: {
       default: false,

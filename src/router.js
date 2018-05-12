@@ -1,15 +1,15 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Router from 'vue-router';
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-const routes = [
-  { path: '/', component: require('@/pages/Home.vue').default },
-  { path: '/playground', component: require('@/pages/Playground.vue').default },
-//  { path: '/dashboard', component: require('@/pages/Dashboard.vue').default },
-];
+/* eslint-disable import/no-dynamic-require */
+const requireView = name => require(`@/views/${name}.vue`).default;
 
-export default new VueRouter({
-  routes,
+export default new Router({
+  routes: [
+    { path: '/', component: requireView('Home') },
+    { path: '/playground', component: requireView('Playground') },
+  ],
   mode: 'history',
 });

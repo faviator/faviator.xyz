@@ -16,6 +16,7 @@
 
 <script>
 import paramCase from 'param-case';
+
 export default {
   props: {
     config: {
@@ -28,10 +29,10 @@ export default {
       return JSON.stringify(this.config, null, 2).trim();
     },
     cliOptions() {
-      return 'faviator ' + Object.entries(this.config)
+      return `faviator ${Object.entries(this.config)
         .filter(([, v]) => !!v)
         .map(([k, v]) => `--${paramCase(k)} '${v}'`)
-        .join(' ');
+        .join(' ')}`;
     },
   },
 };

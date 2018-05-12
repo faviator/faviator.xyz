@@ -1,62 +1,68 @@
 {
   "name": "faviator.xyz",
-  "description": "Web UI for faviator",
   "version": "1.2.4",
-  "author": "Jason Yu <me@ycmjason.com>",
   "private": true,
   "scripts": {
-    "test": "npm run test:js",
-    "verify": "npm run clean && npm install && npm run build && npm test",
+    "test": "npm run test:unit",
     "preversion": "git checkout master && git merge --squash dev && npm run verify",
     "version": "git add -A",
     "postversion": "git push && git push --tags && git checkout - && git merge master -X theirs -m 'Merge with master' && git push",
     "\n# BUILDING SCRIPTS:": "",
-    "dev": "poi",
-    "build": "poi build",
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit",
+    "verify": "npm run clean && npm install && npm run build && npm test",
     "clean": "/bin/rm -rf dist coverage node_modules",
-    "\n# DEPLOYMENT SCRIPTS:": "",
-    "predeploy": "git checkout master && npm run verify",
-    "deploy": "firebase use default && firebase deploy",
-    "postdeploy": "git checkout -",
-    "predeploy:staging": "npm run predeploy",
-    "deploy:staging": "firebase use staging && firebase deploy",
-    "postdeploy:staging": "npm run postdeploy",
-    "\n# TESTING SCRIPTS:": "",
-    "test:js": "jest",
-    "test:js:w": "npm run test:js -- --watch",
     "coverage": "codecov",
-    "lint:js": "eslint --ext js,vue src test",
-    "\n# HUSKY GIT HOOKS:": "",
-    "precommit": "lint-staged",
-    "\n# OTHER SCRIPTS": "",
-    "grepFonts": "bash ./scripts/grepFonts.bash"
+    "\n# DEPLOYMENT SCRIPTS:": "",
+    "predeploy": "npm run verify",
+    "deploy": "firebase use default && firebase deploy"
   },
   "dependencies": {
     "@faviator/create-svg-favicon": "^1.1.0",
     "babel-polyfill": "^6.26.0",
     "lodash.mapvalues": "^4.6.0",
-    "node-sass": "^4.8.3",
     "param-case": "^2.1.1",
-    "sass-loader": "^6.0.7",
+    "register-service-worker": "^1.0.0",
     "vue": "^2.5.16",
     "vue-ga": "^1.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.13",
-    "@ycm.jason/eslint-config": "^1.2.0",
-    "babel-jest": "^22.4.3",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "codecov": "^3.0.0",
-    "eslint": "^4.19.1",
-    "eslint-plugin-vue": "^4.4.0",
-    "husky": "^0.14.3",
-    "jest": "^22.4.3",
-    "lint-staged": "^7.0.0",
-    "poi": "^9.6.13",
+    "@vue/cli-plugin-babel": "^3.0.0-beta.10",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.10",
+    "@vue/cli-plugin-pwa": "^3.0.0-beta.10",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-beta.10",
+    "@vue/cli-service": "^3.0.0-beta.10",
+    "@vue/eslint-config-airbnb": "^3.0.0-beta.10",
+    "@vue/test-utils": "^1.0.0-beta.10",
+    "@ycm.jason/eslint-config": "^1.2.2",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^22.0.4",
+    "lint-staged": "^6.0.0",
+    "node-sass": "^4.7.2",
     "robotstxt-webpack-plugin": "^4.0.1",
-    "vue-jest": "^2.3.0",
-    "vue-template-compiler": "^2.5.16"
+    "sass-loader": "^6.0.6",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }

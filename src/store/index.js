@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 import mapValues from 'lodash.mapvalues';
 
-import faviatorIconConfig from '@/../faviatorIconConfig';
+import faviatorIconConfig from '@/../faviatorIconConfig.json';
 
 Vue.use(Vuex);
 
@@ -17,7 +17,7 @@ export const state = {
 
 export const mutations = {
   setConfig: (state, config) => state.config = { ...config },
-  resetConfig: (state) => state.config = getDefaultConfig(),
+  resetConfig: state => state.config = getDefaultConfig(),
 };
 
 export const actions = {

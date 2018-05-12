@@ -8,10 +8,14 @@ import App from '@/App.vue';
 
 import ga from 'vue-ga';
 
+import './registerServiceWorker';
+
+Vue.config.productionTip = false;
+
 ga(router, 'UA-113637016-1');
 
-const registerAll = (context, prefix) => context.keys().forEach(p => {
-  let name = p.match(/\.\/(.*?)\.vue/)[1];
+const registerAll = (context, prefix) => context.keys().forEach((p) => {
+  const name = p.match(/\.\/(.*?)\.vue/)[1];
   Vue.component(prefix + name, context(p).default);
 });
 
@@ -21,6 +25,5 @@ registerAll(require.context('@/components_presentational', false, /.*\.vue/), 'f
 new Vue({
   router,
   store,
-  el: '#app',
   render: h => h(App),
-});
+}).$mount('#app');
