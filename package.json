@@ -41,6 +41,7 @@
     "@ycm.jason/eslint-config": "^1.2.2",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.0.4",
+    "codecov": "^3.0.2",
     "lint-staged": "^6.0.0",
     "node-sass": "^4.7.2",
     "robotstxt-webpack-plugin": "^4.0.1",
