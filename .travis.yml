@@ -2,7 +2,9 @@ notifications:
   email: false
 
 language: node_js
-node_js: "node"
+
+node_js:
+  - "8"
 
 script:
   - npm run build
@@ -10,3 +12,13 @@ script:
 
 after_success:
   - npm run coverage
+
+before_deploy:
+  - npm run build
+
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: SpbbMuIQIrqU1do/aYfzzyNMERlH1hJH/xHMApVz8Adt9x4llh9tv+JfZz8JaykR5qfNNbcwP7Q/piQetew2uradtn5o8pMRwaQ3UjDOuwA9cO/x0Mm4OwcbA9zIn99SeA/GX5uNJ4WHbNADVjDl3fln7pk5UAiPTfATBL+hBevU7ySSHHzCfoH1DxA3pKIpPwyZPeyh48WbCWM1Mgc6LK4rbPUTMI7KH2B7WibUW7/ljY2pzWQUb+2/iqdN+wHqLCzhERfIJR43IX7hHP8BY+6UnFpXmc0ySTH28aeZ5V/N3wIx/Etxq5sIdIfvU+qKSNPHiL+kWaKnv7jkG/c6g58BtsZ4TTvfmaM/v6FHb39m+/VAHXPhaiQtg8GyyP4PUzTgwGIeFSWToAKSdNqUNNEjJGM1ZSyH6QLi3gVurasGP7P+mSRIRS0kBkm7iOPvNq8GAZ4aHMdqNXtjfnBooHOWMT9ROvl1VbZ0lJhxHKOdzOUUBH5u6aVBalE6GTr2SHwAvj5CTByPuMrgHpKqNlrl9WvvhMIHXT5usWng1Hi4QkQPqD/cY7sOVsCqDYT1mKfGl+fPcjiV/fFNLvvIzFZa0GPLT4a+/UQpf5SRFtgECJbz9IctkI6AtNAd+lmwosmbgmQVL/qgT/bXQnHdQ9/CAO58Yy4xIUHYiM4ERAo=
+  project: "faviator-xyz-staging"
