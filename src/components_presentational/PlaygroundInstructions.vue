@@ -1,9 +1,12 @@
 <template>
-  <p>You can tweek the settings below and see the result instantly. The configurations would be available at the end of the page.</p>
+  <p>
+    You can tweek the settings below and see the result instantly. The
+    configurations would be available at the end of the page.
+  </p>
 </template>
 
 <script>
-export default { };
+export default {};
 </script>
 
 <style></style>

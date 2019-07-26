@@ -1,10 +1,10 @@
 <template>
   <div>
     <h3>Config object</h3>
-    <code>{{prettyConfig}}</code>
+    <code>{{ prettyConfig }}</code>
 
     <h3>Command line</h3>
-    <code>{{cliOptions}}</code>
+    <code>{{ cliOptions }}</code>
 
     <h4>To save as png, add</h4>
     <code>--output favicon.png</code>
@@ -28,14 +28,16 @@ export default {
       return JSON.stringify(this.config, null, 2).trim();
     },
     cliOptions() {
-      return 'faviator ' + Object.entries(this.config)
-        .filter(([, v]) => !!v)
-        .map(([k, v]) => `--${paramCase(k)} '${v}'`)
-        .join(' ');
+      return (
+        'faviator ' +
+        Object.entries(this.config)
+          .filter(([, v]) => !!v)
+          .map(([k, v]) => `--${paramCase(k)} '${v}'`)
+          .join(' ')
+      );
     },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
