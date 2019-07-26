@@ -1,6 +1,4 @@
 # faviator.xyz
-[![Build Status](https://travis-ci.org/faviator/faviator.xyz.svg?branch=dev)](https://travis-ci.org/faviator/faviator.xyz)
-[![codecov](https://codecov.io/gh/faviator/faviator.xyz/branch/dev/graph/badge.svg)](https://codecov.io/gh/faviator/faviator.xyz)
 
 Web UI for faviator
 
