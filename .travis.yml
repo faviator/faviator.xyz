@@ -13,7 +13,8 @@ before_deploy:
   - npm run build
 
 deploy:
-  tags: true
+  on:
+    tags: true
   skip_cleanup: true
   provider: firebase
   token:
