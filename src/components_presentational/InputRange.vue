@@ -10,7 +10,8 @@
         :disabled="disabled"
         :value="value"
         @input="emitInput"
-        @change="emitChange">
+        @change="emitChange"
+      />
       <input
         type="range"
         :name="name"
@@ -20,7 +21,8 @@
         :value="value"
         :disabled="disabled"
         @input="emitInput"
-        @change="emitChange">
+        @change="emitChange"
+      />
     </div>
   </main>
 </template>
@@ -34,19 +36,19 @@ export default {
     },
     min: {
       required: false,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     max: {
       required: false,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     step: {
       default: 1,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     value: {
       required: false,
-      validator: (v) => !isNaN(Number(v)),
+      validator: v => !isNaN(Number(v)),
     },
     disabled: {
       default: false,
@@ -69,11 +71,11 @@ div {
   flex-wrap: nowrap;
 }
 
-input[type=range] {
+input[type='range'] {
   flex-grow: 1;
 }
 
-input[type=number] {
+input[type='number'] {
   width: 5rem;
 }
 </style>

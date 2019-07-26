@@ -3,17 +3,18 @@
     <section class="config_size">
       <label>
         Size
-        <f-p-input-range
+        <InputRange
           name="size"
           :value="config.size"
           :min="5"
           :max="500"
           :step="1"
-          @input="v => update('size', v)"></f-p-input-range>
+          @input="v => update('size', v)"
+        ></InputRange>
       </label>
     </section>
 
-    <hr>
+    <hr />
 
     <section class="config_text">
       <label>
@@ -23,25 +24,29 @@
           :value="config.text"
           type="text"
           placeholder="Text"
-          @input="update('text', $event.target.value)">
+          @input="update('text', $event.target.value)"
+        />
       </label>
       <label>
-        Font family (or choose from <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>)
-        <f-input-google-fonts
+        Font family (or choose from
+        <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>)
+        <InputGoogleFonts
           name="fontFamily"
           :value="config.fontFamily"
           type="text"
-          @change="font => update('fontFamily', font)"></f-input-google-fonts>
+          @change="font => update('fontFamily', font)"
+        ></InputGoogleFonts>
       </label>
       <label>
         Font size
-        <f-p-input-range
+        <InputRange
           name="fontSize"
           :value="config.fontSize"
           :min="0"
           :max="120"
           :step="1"
-          @input="v => update('fontSize', v)"></f-p-input-range>
+          @input="v => update('fontSize', v)"
+        ></InputRange>
       </label>
       <label>
         Font color
@@ -50,31 +55,34 @@
           :value="config.fontColor"
           type="text"
           placeholder="Font Color"
-          @input="update('fontColor', $event.target.value)">
+          @input="update('fontColor', $event.target.value)"
+        />
       </label>
       <label>
         dx
-        <f-p-input-range
+        <InputRange
           name="dx"
           :value="config.dx"
           :min="-(config.size / 2)"
           :max="config.size / 2"
           :step="0.5"
-          @input="v => update('dx', v)"></f-p-input-range>
+          @input="v => update('dx', v)"
+        ></InputRange>
       </label>
       <label>
         dy
-        <f-p-input-range
+        <InputRange
           name="dy"
           :value="config.dy"
           :min="-(config.size / 2)"
           :max="config.size / 2"
           :step="0.5"
-          @input="v => update('dy', v)"></f-p-input-range>
+          @input="v => update('dy', v)"
+        ></InputRange>
       </label>
     </section>
 
-    <hr>
+    <hr />
 
     <section class="config_other">
       <label>
@@ -84,17 +92,19 @@
           :value="config.backgroundColor"
           type="text"
           placeholder="Background Color"
-          @input="update('backgroundColor', $event.target.value)">
+          @input="update('backgroundColor', $event.target.value)"
+        />
       </label>
       <label>
         Border width
-        <f-p-input-range
+        <InputRange
           name="borderWidth"
           :value="config.borderWidth"
           :min="0"
           :max="config.size / 2"
           :step="0.5"
-          @input="v => update('borderWidth', v)"></f-p-input-range>
+          @input="v => update('borderWidth', v)"
+        ></InputRange>
       </label>
       <label>
         Border color
@@ -103,44 +113,52 @@
           :value="config.borderColor"
           type="text"
           placeholder="Border Color"
-          @input="update('borderColor', $event.target.value)">
+          @input="update('borderColor', $event.target.value)"
+        />
       </label>
       <label>
         Border radius
-        <f-p-input-range
+        <InputRange
           name="borderRadius"
           :value="config.borderRadius"
           :min="0"
           :max="50"
           :step="0.5"
-          @input="updateRadius"></f-p-input-range>
+          @input="updateRadius"
+        ></InputRange>
       </label>
       <label>
         rx
-        <f-p-input-range
+        <InputRange
           name="rx"
           :value="config.rx"
           :min="0"
           :max="50"
           :step="0.5"
-          @input="updateRx"></f-p-input-range>
+          @input="updateRx"
+        ></InputRange>
       </label>
       <label>
         ry
-        <f-p-input-range
+        <InputRange
           name="ry"
           :value="config.ry"
           :min="0"
           :max="50"
           :step="0.5"
-          @input="updateRy"></f-p-input-range>
+          @input="updateRy"
+        ></InputRange>
       </label>
     </section>
   </main>
 </template>
 
 <script>
+import InputRange from '/components_presentational/InputRange.vue';
+import InputGoogleFonts from '/components/InputGoogleFonts.vue';
+
 export default {
+  components: { InputRange, InputGoogleFonts },
   props: {
     config: {
       type: Object,
@@ -175,7 +193,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/config';
+@import '/styles/config';
 
 section {
   display: flex;
@@ -187,7 +205,8 @@ label {
   margin-bottom: ($core-margin * 3);
 }
 
-label > main, label > input {
+label > main,
+label > input {
   display: block;
   margin-top: ($core-margin / 2);
 }

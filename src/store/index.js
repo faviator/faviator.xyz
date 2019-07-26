@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 import mapValues from 'lodash.mapvalues';
 
-import faviatorIconConfig from '@/../faviatorIconConfig';
+import faviatorIconConfig from '/../faviatorIconConfig';
 
 Vue.use(Vuex);
 
@@ -16,16 +16,22 @@ export const state = {
 };
 
 export const mutations = {
-  setConfig: (state, config) => state.config = { ...config },
-  resetConfig: (state) => state.config = getDefaultConfig(),
+  setConfig: (state, config) => (state.config = { ...config }),
+  resetConfig: state => (state.config = getDefaultConfig()),
 };
 
 export const actions = {
   updateConfig({ commit, state }, newConfig) {
-    commit('setConfig', mapValues({
-      ...state.config,
-      ...newConfig,
-    }, v => Number(v) || v));
+    commit(
+      'setConfig',
+      mapValues(
+        {
+          ...state.config,
+          ...newConfig,
+        },
+        v => Number(v) || v,
+      ),
+    );
   },
 };
 

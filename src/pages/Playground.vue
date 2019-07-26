@@ -1,16 +1,20 @@
 <template>
   <main>
-    <f-header></f-header>
+    <Header></Header>
     <section class="container">
       <h1>Playground</h1>
-      <f-playground></f-playground>
+      <Playground></Playground>
     </section>
   </main>
 </template>
 
 <script>
-export default { };
+import Header from '/components/Header.vue';
+import Playground from '/components/Playground.vue';
+
+export default {
+  components: { Header, Playground },
+};
 </script>
 
-<style>
-</style>
+<style></style>

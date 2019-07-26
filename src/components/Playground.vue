@@ -1,28 +1,40 @@
 <template>
   <main>
-    <f-p-playground-instructions></f-p-playground-instructions>
+    <PlaygroundInstructions></PlaygroundInstructions>
     <section>
-      <f-p-playground-result class="result" :config="config"></f-p-playground-result>
-      <f-p-playground-controls class="controls"
+      <PlaygroundResult class="result" :config="config"></PlaygroundResult>
+      <PlaygroundControls
+        class="controls"
         :config="config"
-        @change="updateConfig"></f-p-playground-controls>
+        @change="updateConfig"
+      ></PlaygroundControls>
     </section>
-    <f-p-playground-display-config :config="config"></f-p-playground-display-config>
+    <PlaygroundDisplayConfig :config="config"></PlaygroundDisplayConfig>
   </main>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import PlaygroundInstructions from '/components_presentational/PlaygroundInstructions.vue';
+import PlaygroundControls from '/components_presentational/PlaygroundControls.vue';
+import PlaygroundDisplayConfig from '/components_presentational/PlaygroundDisplayConfig.vue';
+import PlaygroundResult from '/components_presentational/PlaygroundResult.vue';
 
 export default {
+  components: {
+    PlaygroundInstructions,
+    PlaygroundControls,
+    PlaygroundDisplayConfig,
+    PlaygroundResult,
+  },
   computed: mapState(['config']),
   methods: mapActions(['updateConfig']),
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/config';
-@import '../styles/mixins';
+@import '/styles/config';
+@import '/styles/mixins';
 
 section {
   display: flex;
