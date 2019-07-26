@@ -1,7 +1,7 @@
 <template>
   <main>
     <Header></Header>
-    <section class="container">
+    <section class="container playgroundContainer">
       <h1>Playground</h1>
       <Playground></Playground>
     </section>
@@ -17,4 +17,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.playgroundContainer {
+  margin-bottom: 5rem;
+}
+</style>

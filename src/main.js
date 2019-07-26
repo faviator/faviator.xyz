@@ -13,6 +13,5 @@ ga(router, 'UA-113637016-1');
 new Vue({
   router,
   store,
-  el: '#app',
   render: h => h(App),
-});
+}).$mount('#app');
