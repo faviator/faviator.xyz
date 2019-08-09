@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### v2.0.0
+- add download image feature in playground!
+
 ### v1.3.2
 - use $FIREBASE_KEY
 
