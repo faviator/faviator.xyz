@@ -41,24 +41,17 @@ export default {
   },
   methods: {
     async downloadPng() {
-      const { default: SvgToImg } = await import(
-        '@ycm.jason/svg-to-img/dist/svg-to-img.esm.js'
-      );
+      const { default: SvgToImg } = await import('@ycm.jason/svg-to-img/dist/svg-to-img.esm.js');
       const dataUrl = await SvgToImg.png(this.getSvgString());
       downloadFile('favicon.png', dataUrl);
     },
     async downloadJpg() {
-      const { default: SvgToImg } = await import(
-        '@ycm.jason/svg-to-img/dist/svg-to-img.esm.js'
-      );
+      const { default: SvgToImg } = await import('@ycm.jason/svg-to-img/dist/svg-to-img.esm.js');
       const dataUrl = await SvgToImg.jpg(this.getSvgString());
       downloadFile('favicon.jpg', dataUrl);
     },
     downloadSvg() {
-      downloadFile(
-        'favicon.svg',
-        `data:image/svg+xml;base64,${btoa(this.getSvgString())}`,
-      );
+      downloadFile('favicon.svg', `data:image/svg+xml;base64,${btoa(this.getSvgString())}`);
     },
     getSvgString() {
       return createSvgFavicon(this.config);
