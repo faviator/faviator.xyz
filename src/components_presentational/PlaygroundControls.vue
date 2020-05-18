@@ -142,12 +142,13 @@
 <script lang="ts">
 import InputRange from '@/components_presentational/InputRange.vue';
 import InputGoogleFonts from '@/components/InputGoogleFonts.vue';
+import { CreateSvgFaviconConfig } from '@faviator/create-svg-favicon';
 
 export default {
   components: { InputRange, InputGoogleFonts },
   props: {
     config: {
-      type: Object,
+      type: Object as () => CreateSvgFaviconConfig,
       required: true,
     },
   },

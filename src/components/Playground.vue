@@ -18,6 +18,7 @@ import PlaygroundDisplayConfig from '@/components_presentational/PlaygroundDispl
 import PlaygroundResult from '@/components_presentational/PlaygroundResult.vue';
 
 import faviatorIconConfig from '@/../faviatorIconConfig.json';
+import { CreateSvgFaviconConfig } from '@faviator/create-svg-favicon';
 
 export default defineComponent({
   components: {
@@ -28,8 +29,8 @@ export default defineComponent({
   },
 
   setup() {
-    const config = ref<object>(faviatorIconConfig);
-    const updateConfig = (c: object) => (config.value = c);
+    const config = ref<CreateSvgFaviconConfig>(faviatorIconConfig);
+    const updateConfig = (c: CreateSvgFaviconConfig) => (config.value = c);
     return { config, updateConfig };
   },
 });

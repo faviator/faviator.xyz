@@ -4,12 +4,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import createSvgFavicon from '@faviator/create-svg-favicon';
+import createSvgFavicon, { CreateSvgFaviconConfig } from '@faviator/create-svg-favicon';
 
 export default defineComponent({
   props: {
     config: {
-      type: Object,
+      type: Object as () => CreateSvgFaviconConfig,
       required: true,
     },
   },
