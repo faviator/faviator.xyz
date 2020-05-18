@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### v2.1.1
+- trying to fix travis CD
+
 ### v2.1.0
 - migrate to vue 3
 - migrate from parcel to webpack
