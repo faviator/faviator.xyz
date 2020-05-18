@@ -1,7 +1,10 @@
 # CHANGELOG
 
+### v2.1.2
+- fix assets not being copied correctly
+
 ### v2.1.1
-- trying to fix travis CD
+- fix travis CD
 
 ### v2.1.0
 - migrate to vue 3
