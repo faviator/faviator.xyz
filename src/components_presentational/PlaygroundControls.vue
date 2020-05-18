@@ -1,7 +1,7 @@
 <template>
-  <main>
-    <section class="config_size">
-      <label>
+  <main class="playground-controls">
+    <section class="playground-controls__config-section">
+      <label class="playground-controls__label">
         Size
         <InputRange
           name="size"
@@ -9,15 +9,15 @@
           :min="5"
           :max="500"
           :step="1"
-          @input="v => update('size', v)"
+          @input="(v) => update('size', v)"
         ></InputRange>
       </label>
     </section>
 
     <hr />
 
-    <section class="config_text">
-      <label>
+    <section class="playground-controls__config-section">
+      <label class="playground-controls__label">
         Text
         <input
           name="text"
@@ -27,17 +27,17 @@
           @input="update('text', $event.target.value)"
         />
       </label>
-      <label>
+      <label class="playground-controls__label">
         Font family (or choose from
         <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>)
         <InputGoogleFonts
           name="fontFamily"
           :value="config.fontFamily"
           type="text"
-          @change="font => update('fontFamily', font)"
+          @change="(font) => update('fontFamily', font)"
         ></InputGoogleFonts>
       </label>
-      <label>
+      <label class="playground-controls__label">
         Font size
         <InputRange
           name="fontSize"
@@ -45,10 +45,10 @@
           :min="0"
           :max="120"
           :step="1"
-          @input="v => update('fontSize', v)"
+          @input="(v) => update('fontSize', v)"
         ></InputRange>
       </label>
-      <label>
+      <label class="playground-controls__label">
         Font color
         <input
           name="fontColor"
@@ -58,7 +58,7 @@
           @input="update('fontColor', $event.target.value)"
         />
       </label>
-      <label>
+      <label class="playground-controls__label">
         dx
         <InputRange
           name="dx"
@@ -66,10 +66,10 @@
           :min="-(config.size / 2)"
           :max="config.size / 2"
           :step="0.5"
-          @input="v => update('dx', v)"
+          @input="(v) => update('dx', v)"
         ></InputRange>
       </label>
-      <label>
+      <label class="playground-controls__label">
         dy
         <InputRange
           name="dy"
@@ -77,15 +77,15 @@
           :min="-(config.size / 2)"
           :max="config.size / 2"
           :step="0.5"
-          @input="v => update('dy', v)"
+          @input="(v) => update('dy', v)"
         ></InputRange>
       </label>
     </section>
 
     <hr />
 
-    <section class="config_other">
-      <label>
+    <section class="playground-controls__config-section">
+      <label class="playground-controls__label">
         Background color
         <input
           name="backgroundColor"
@@ -95,7 +95,7 @@
           @input="update('backgroundColor', $event.target.value)"
         />
       </label>
-      <label>
+      <label class="playground-controls__label">
         Border width
         <InputRange
           name="borderWidth"
@@ -103,10 +103,10 @@
           :min="0"
           :max="config.size / 2"
           :step="0.5"
-          @input="v => update('borderWidth', v)"
+          @input="(v) => update('borderWidth', v)"
         ></InputRange>
       </label>
-      <label>
+      <label class="playground-controls__label">
         Border color
         <input
           name="borderColor"
@@ -116,7 +116,7 @@
           @input="update('borderColor', $event.target.value)"
         />
       </label>
-      <label>
+      <label class="playground-controls__label">
         Border radius
         <InputRange
           name="borderRadius"
@@ -127,35 +127,21 @@
           @input="updateRadius"
         ></InputRange>
       </label>
-      <label>
+      <label class="playground-controls__label">
         rx
-        <InputRange
-          name="rx"
-          :value="config.rx"
-          :min="0"
-          :max="50"
-          :step="0.5"
-          @input="updateRx"
-        ></InputRange>
+        <InputRange name="rx" :value="config.rx" :min="0" :max="50" :step="0.5" @input="updateRx"></InputRange>
       </label>
-      <label>
+      <label class="playground-controls__label">
         ry
-        <InputRange
-          name="ry"
-          :value="config.ry"
-          :min="0"
-          :max="50"
-          :step="0.5"
-          @input="updateRy"
-        ></InputRange>
+        <InputRange name="ry" :value="config.ry" :min="0" :max="50" :step="0.5" @input="updateRy"></InputRange>
       </label>
     </section>
   </main>
 </template>
 
-<script>
-import InputRange from '/components_presentational/InputRange.vue';
-import InputGoogleFonts from '/components/InputGoogleFonts.vue';
+<script lang="ts">
+import InputRange from '@/components_presentational/InputRange.vue';
+import InputGoogleFonts from '@/components/InputGoogleFonts.vue';
 
 export default {
   components: { InputRange, InputGoogleFonts },
@@ -165,25 +151,32 @@ export default {
       required: true,
     },
   },
+  emits: {
+    change: (_config: object) => true,
+  },
   methods: {
-    update(name, value) {
-      this.$emit('change', { [name]: value });
+    update(name: string, value: string | number) {
+      console.log(name, value);
+      this.$emit('change', { ...this.config, [name]: value });
     },
-    updateRadius(value) {
+    updateRadius(value: string) {
       this.$emit('change', {
+        ...this.config,
         borderRadius: value,
         rx: undefined,
         ry: undefined,
       });
     },
-    updateRx(value) {
+    updateRx(value: string) {
       this.$emit('change', {
+        ...this.config,
         borderRadius: undefined,
         rx: value,
       });
     },
-    updateRy(value) {
+    updateRy(value: string) {
       this.$emit('change', {
+        ...this.config,
         borderRadius: undefined,
         ry: value,
       });
@@ -192,27 +185,29 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import '/styles/config';
+<style lang="scss">
+@import '~@/styles/config';
 
-section {
-  display: flex;
-  flex-direction: column;
-}
+.playground-controls {
+  &__config-section {
+    display: flex;
+    flex-direction: column;
+  }
 
-label {
-  font-weight: $font-family-primary-weight-bold;
-  margin-bottom: ($core-margin * 3);
-}
+  &__label {
+    font-weight: $font-family-primary-weight-bold;
+    margin-bottom: ($core-margin * 3);
+  }
 
-label > main,
-label > input {
-  display: block;
-  margin-top: ($core-margin / 2);
-}
+  &__label > main,
+  &__label > input {
+    display: block;
+    margin-top: ($core-margin / 2);
+  }
 
-hr {
-  margin-top: 0;
-  margin-bottom: ($core-margin * 3);
+  & > hr {
+    margin-top: 0;
+    margin-bottom: ($core-margin * 3);
+  }
 }
 </style>

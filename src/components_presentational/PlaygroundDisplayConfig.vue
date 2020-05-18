@@ -21,18 +21,19 @@
   </div>
 </template>
 
-<script>
-import paramCase from 'param-case';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { paramCase } from 'param-case';
 import createSvgFavicon from '@faviator/create-svg-favicon';
 
-const downloadFile = (name, link) => {
+const downloadFile = (name: string, link: string): void => {
   const a = document.createElement('a');
   a.download = name;
   a.href = link;
   a.click();
 };
 
-export default {
+export default defineComponent({
   props: {
     config: {
       type: Object,
@@ -41,12 +42,18 @@ export default {
   },
   methods: {
     async downloadPng() {
-      const { default: SvgToImg } = await import('@ycm.jason/svg-to-img/dist/svg-to-img.esm.js');
+      const { default: SvgToImg } = await import(
+        // @ts-ignore
+        /* webpackChunkName: "svgToImg" */ '@ycm.jason/svg-to-img/dist/svg-to-img.esm.js'
+      );
       const dataUrl = await SvgToImg.png(this.getSvgString());
       downloadFile('favicon.png', dataUrl);
     },
     async downloadJpg() {
-      const { default: SvgToImg } = await import('@ycm.jason/svg-to-img/dist/svg-to-img.esm.js');
+      const { default: SvgToImg } = await import(
+        // @ts-ignore
+        /* webpackChunkName: "svgToImg" */ '@ycm.jason/svg-to-img/dist/svg-to-img.esm.js'
+      );
       const dataUrl = await SvgToImg.jpg(this.getSvgString());
       downloadFile('favicon.jpg', dataUrl);
     },
@@ -58,10 +65,10 @@ export default {
     },
   },
   computed: {
-    prettyConfig() {
+    prettyConfig(): string {
       return JSON.stringify(this.config, null, 2).trim();
     },
-    cliOptions() {
+    cliOptions(): string {
       return (
         'faviator ' +
         Object.entries(this.config)
@@ -71,10 +78,10 @@ export default {
       );
     },
   },
-};
+});
 </script>
 
-<style scoped>
+<style>
 .playground__downloads {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

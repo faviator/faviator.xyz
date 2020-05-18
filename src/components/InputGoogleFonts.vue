@@ -1,31 +1,29 @@
 <template>
-  <main>
-    <button @click="selectRandom">Random</button>
+  <main class="input-google-fonts">
+    <button class="input-google-fonts__button" @click="selectRandom">Random</button>
 
     <select size="10" @change="$emit('change', $event.target.value)">
-      <option v-if="fonts.length <= 0" :value="value" selected>{{
-        value
-      }}</option>
-      <option
-        v-for="(font, i) in fonts"
-        :key="i"
-        :value="font"
-        :selected="font === value"
-        >{{ font }}</option
-      >
+      <option v-if="fonts.length <= 0" :value="value" selected>{{ value }}</option>
+      <option v-for="(font, i) in fonts" :key="i" :value="font" :selected="font === value">{{ font }}</option>
     </select>
   </main>
 </template>
 
-<script>
-import { pickRandom } from '/utils';
-import fonts from '/assets/googleFonts.json';
-export default {
+<script lang="ts">
+import { pickRandom } from '@/utils';
+import fonts from '@/assets/googleFonts.json';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   props: {
     value: {
       type: String,
       default: 'Dancing Script',
     },
+  },
+
+  emits: {
+    change: (_font: string) => true,
   },
 
   methods: {
@@ -37,13 +35,13 @@ export default {
   data: () => ({
     fonts,
   }),
-};
+});
 </script>
 
-<style lang="scss" scoped>
-@import '/styles/config';
+<style lang="scss">
+@import '~@/styles/config';
 
-button {
+.input-google-fonts__button {
   margin-bottom: $core-margin;
 }
 </style>

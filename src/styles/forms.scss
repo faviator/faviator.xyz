@@ -1,11 +1,15 @@
-@import '/styles/config.scss';
+@import '~@/styles/config.scss';
 
-input, textarea {
+input,
+textarea {
   font-size: inherit;
   font-family: inherit;
 }
 
-.button, button, input[type=button], input[type=submit] {
+.button,
+button,
+input[type='button'],
+input[type='submit'] {
   font-size: inherit;
   font-weight: inherit;
   background: $color-background;
@@ -17,13 +21,17 @@ input, textarea {
   transition: color;
   display: inline-block;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     border-color: $color-primary-highlight;
     color: $color-primary-highlight;
   }
 }
 
-input[type=number], input[type=text], textarea, select {
+input[type='number'],
+input[type='text'],
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
   width: 100%;

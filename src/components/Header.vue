@@ -1,34 +1,36 @@
 <template>
-  <header>
-    <main class="container">
-      <router-link to="/" class="title">Faviator</router-link>
+  <header class="header">
+    <main class="header__main container">
+      <router-link to="/" class="header__title">Faviator</router-link>
     </main>
   </header>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({});
 </script>
 
-<style lang="scss" scoped>
-@import '/styles/config';
+<style lang="scss">
+@import '~@/styles/config';
 
-header {
+.header {
   background: $color-primary;
   color: $color-primary-foreground;
   padding-top: $core-margin / 2;
   padding-bottom: $core-margin / 2;
   margin-bottom: $core-margin;
   box-shadow: $core-box-shadow;
-}
 
-main {
-  display: flex;
-}
+  &__main {
+    display: flex;
+  }
 
-.title {
-  font-family: $font-family-secondary;
-  font-size: 2rem;
-  color: $color-primary-foreground;
+  &__title {
+    font-family: $font-family-secondary;
+    font-size: 2rem;
+    color: $color-primary-foreground;
+  }
 }
 </style>

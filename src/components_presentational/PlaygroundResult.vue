@@ -1,13 +1,12 @@
 <template>
-  <main>
-    <div v-html="svg"></div>
-  </main>
+  <div v-html="svg" class="playground-result"></div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import createSvgFavicon from '@faviator/create-svg-favicon';
 
-export default {
+export default defineComponent({
   props: {
     config: {
       type: Object,
@@ -15,17 +14,17 @@ export default {
     },
   },
   computed: {
-    svg() {
+    svg(): string {
       return createSvgFavicon(this.config);
     },
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-@import '/styles/config';
+<style lang="scss">
+@import '~@/styles/config';
 
-div {
+.playground-result {
   overflow: auto;
   display: flex;
   justify-content: center;

@@ -1,12 +1,14 @@
 <template>
   <p>
-    You can tweek the settings below and see the result instantly. The
-    configurations would be available at the end of the page.
+    You can tweek the settings below and see the result instantly. The configurations would be available at the end of
+    the page.
   </p>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({});
 </script>
 
 <style></style>

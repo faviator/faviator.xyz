@@ -1,81 +1,80 @@
 <template>
-  <main>
-    <div>
-      <input
-        type="number"
-        :name="name"
-        :min="min"
-        :max="max"
-        :step="step"
-        :disabled="disabled"
-        :value="value"
-        @input="emitInput"
-        @change="emitChange"
-      />
-      <input
-        type="range"
-        :name="name"
-        :min="min"
-        :max="max"
-        :step="step"
-        :value="value"
-        :disabled="disabled"
-        @input="emitInput"
-        @change="emitChange"
-      />
-    </div>
-  </main>
+  <div class="input-range">
+    <input
+      type="number"
+      :name="name"
+      :min="min"
+      :max="max"
+      :step="step"
+      :disabled="disabled"
+      :value="value"
+      @input="emitInput"
+      @change="emitChange"
+    />
+    <input
+      type="range"
+      :name="name"
+      :min="min"
+      :max="max"
+      :step="step"
+      :value="value"
+      :disabled="disabled"
+      @input="emitInput"
+      @change="emitChange"
+    />
+  </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   props: {
-    name: {
-      type: String,
-      required: false,
-    },
-    min: {
-      required: false,
-      validator: v => !isNaN(Number(v)),
-    },
-    max: {
-      required: false,
-      validator: v => !isNaN(Number(v)),
-    },
+    name: String,
+    min: Number,
+    max: Number,
     step: {
+      type: Number,
       default: 1,
-      validator: v => !isNaN(Number(v)),
     },
-    value: {
-      required: false,
-      validator: v => !isNaN(Number(v)),
-    },
+    value: Number,
     disabled: {
+      type: Boolean,
       default: false,
     },
   },
+  emits: {
+    change: (_x: number) => true,
+    input: (_x: number) => true,
+  },
   methods: {
-    emitChange(event) {
-      this.$emit('change', event.target.value);
+    emitChange(event: Event) {
+      if (!(event?.target instanceof HTMLInputElement)) {
+        return;
+      }
+      this.$emit('change', Number(event.target.value) || 0);
     },
-    emitInput(event) {
-      this.$emit('input', event.target.value);
+    emitInput(event: Event) {
+      if (!(event?.target instanceof HTMLInputElement)) {
+        return;
+      }
+      this.$emit('input', Number(event.target.value) || 0);
     },
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-div {
+<style lang="scss">
+.input-range {
   display: flex;
   flex-wrap: nowrap;
-}
 
-input[type='range'] {
-  flex-grow: 1;
-}
+  input[type='range'] {
+    flex-grow: 1;
+  }
 
-input[type='number'] {
-  width: 5rem;
+  input[type='number'] {
+    width: 5rem;
+  }
 }
 </style>

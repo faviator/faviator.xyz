@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <div class="github-button-container">
+  <main class="home">
+    <div class="home__github-button-container">
       <a
         class="github-button"
         href="https://github.com/faviator/faviator"
@@ -12,33 +12,28 @@
       >
     </div>
 
-    <img class="logo" src="/assets/logo.png" />
-    <h1 class="title">Faviator</h1>
-    <p class="slogan">A simple easy favicon generator.</p>
+    <img class="home__logo" src="/assets/logo.png" />
+    <h1 class="home__title">Faviator</h1>
+    <p class="home__slogan">A simple easy favicon generator.</p>
 
-    <div class="links">
-      <router-link to="playground" class="link_playground" tag="button"
-        >Test it out!</router-link
-      >
+    <div class="home__links">
+      <router-link to="playground" class="button home__link_playground">Test it out!</router-link>
 
-      <a
-        href="https://www.npmjs.com/package/faviator"
-        class="button link_npm"
-        target="_blank"
-        >See NPM package</a
-      >
+      <a href="https://www.npmjs.com/package/faviator" class="button home__link_npm" target="_blank">See NPM package</a>
     </div>
   </main>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({});
 </script>
 
 <style lang="scss" scoped>
-@import '/styles/config';
+@import '~@/styles/config';
 
-main {
+.home {
   color: $color-primary-foreground;
   background-color: $color-primary;
   display: flex;
@@ -49,31 +44,31 @@ main {
   padding-left: $core-padding;
   padding-right: $core-padding;
   text-align: center;
-}
 
-.logo {
-  width: 180px;
-}
+  &__logo {
+    width: 180px;
+  }
 
-.title {
-  font-size: 5rem;
-  margin-bottom: $core-margin;
-}
+  &__title {
+    font-size: 5rem;
+    margin-bottom: $core-margin;
+  }
 
-.slogan {
-  font-size: 1.5rem;
-  font-style: italic;
-  margin-top: 0;
-}
+  &__slogan {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-top: 0;
+  }
 
-.github-button-container {
-  position: absolute;
-  top: $core-margin;
-  right: $core-margin;
-}
+  &__github-button-container {
+    position: absolute;
+    top: $core-margin;
+    right: $core-margin;
+  }
 
-.link_playground {
-  margin-top: $core-margin;
-  margin-bottom: $core-margin;
+  &__link_playground {
+    margin-top: $core-margin;
+    margin-bottom: $core-margin;
+  }
 }
 </style>

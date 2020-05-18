@@ -8,16 +8,17 @@
   </main>
 </template>
 
-<script>
-import Header from '/components/Header.vue';
-import Playground from '/components/Playground.vue';
+<script lang="ts">
+import Header from '@/components/Header.vue';
+import Playground from '@/components/Playground.vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   components: { Header, Playground },
-};
+});
 </script>
 
-<style scoped>
+<style>
 .playgroundContainer {
   margin-bottom: 5rem;
 }
