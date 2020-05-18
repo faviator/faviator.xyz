@@ -66,7 +66,7 @@ module.exports = (env = {}) => ({
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: 'src/assets' }, { from: 'src/index.html' }],
+      patterns: [{ from: 'src/assets', to: 'assets' }, { from: 'src/index.html' }],
     }),
     new VueLoaderPlugin(),
   ],
