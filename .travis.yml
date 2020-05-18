@@ -17,6 +17,5 @@ deploy:
     tags: true
   skip_cleanup: true
   provider: firebase
-  token:
-    secure: $FIREBASE_TOKEN
+  token: $FIREBASE_TOKEN
   project: "faviator-xyz"
