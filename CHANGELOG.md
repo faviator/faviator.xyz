@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### v2.1.0
+- migrate to vue 3
+- migrate from parcel to webpack
+
 ### v2.0.0
 - add download image feature in playground!
 
